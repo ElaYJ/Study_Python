@@ -14,13 +14,13 @@ resultC = 1
 #nPr
 for n in range(numN, (numN-numR), -1):
     print('n : {}'.format(n))
-    resultP = resultP * n
+    resultP *= n
 
 print('resultP: {}'.format(resultP))
 #r!
 for n in range(numR, 0, -1):
     print('n : {}'.format(n))
-    resultR = resultR * n
+    resultR *= n
 
 print('resultR: {}'.format(resultR))
 # nCr = nPr/r!

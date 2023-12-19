@@ -2,8 +2,6 @@
  # [순열(permutation)]
 '''
 
-# numN = int(input('numN 입력: '))
-# numR = int(input('numR 입력: '))
 # 8P3
 numN = 8
 numR = 3
@@ -13,12 +11,12 @@ result = 1
 
 for n in range(numN, (numN-numR), -1):
     print('n : {}'.format(n))
-    result = result * n
+    result *= n
 
 print('result: {}'.format(result))
 
 
-
+# 7P5
 numN = 7
 numR = 5
 
@@ -27,13 +25,12 @@ resultC = 1
 resultP = 1
 # n!
 for n in range(numN, 0, -1):
-    resultC = resultC * n
+    resultC *= n
 # (n-r)!
 for n in range((numN - numR), 0, -1):
-    resultP = resultP * n
+    resultP *= n
 
 print('result: {}'.format(int(resultC/resultP)))
-
 
 
 

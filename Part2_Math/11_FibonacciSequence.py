@@ -2,14 +2,14 @@
  # [피보나치 수열(Fibonacci sequence/series)]
 '''
 
-inputN = int(input('n 입력: '))
+inputN = 8
 
 fibonacci = []
 valueN = 0
-sumN = 0
-
 valuePreN1 = 0
 valuePreN2 = 0
+
+sumN = 0
 
 n = 1
 while n <= inputN:
@@ -32,4 +32,35 @@ while n <= inputN:
 print('피보나치 수: {}'.format(fibonacci))
 print('{}번째 항의 값: {}'.format(inputN, valueN))
 print('{}번째 항까지의 합: {}'.format(inputN, sumN))
+print()
 
+input_num = 8
+fibonacci = [1, 1]
+value_pre1 = 1
+value_pre2 = 1
+value_an = 0
+sum_an = value_pre1 + value_pre2
+
+for n in range(3, input_num + 1):
+    value_an = value_pre2 + value_pre1
+    value_pre2 = value_pre1
+    value_pre1 = value_an
+    fibonacci.append(value_an)
+    sum_an += value_an
+
+print('피보나치 수: {}'.format(fibonacci))
+print('{}번째 항의 값: {}'.format(input_num, value_an))
+print('{}번째 항까지의 합: {}'.format(input_num, sum_an))
+print()
+
+def fibonacciRecursion(n):
+    if n <= 1: return n
+    else:
+        return fibonacciRecursion(n-2) + fibonacciRecursion(n-1)
+
+print('피보나치 수: { ', end='')
+for n in range(1, inputN):
+    print(fibonacciRecursion(n), end=', ')
+print(fibonacciRecursion(inputN), '}')
+
+print('{}번째 항의 값: {}'.format(inputN, fibonacciRecursion(inputN)))

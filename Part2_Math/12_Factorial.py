@@ -2,7 +2,7 @@
  # [팩토리얼(factorial)]
 '''
 
-inputN = int(input('n 입력: '))
+inputN = 7
 
 # 반복문 사용
 
@@ -37,6 +37,5 @@ print('{} 팩토리얼: {}'.format(inputN, factorialFun(inputN)))
 # 파이썬 함수 사용
 
 import math
-math.factorial(inputN)
 
 print('{} 팩토리얼: {}'.format(inputN, math.factorial(inputN)))

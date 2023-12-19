@@ -1,26 +1,31 @@
 '''
- # [소인수(a prime factor)]
+ # [소인수(a prime factor)] 약수(인수)이면서 소수인 수
  # [소인수분해(factorization in prime factors)]
 '''
 
 #inputNumber = int(input('1보다 큰 정수 입력: '))
 # 소인수분해
-def FractorizationPF(input_num):
+def Fractorization(input_num):
+    prime_factors = []
 
     n = 2
     while n <= input_num:
         if input_num % n == 0:
-            print(' {} 소인수: {}'.format(int(input_num), n))
+            prime_factors.append(n)
             input_num /= n
         else:
             n += 1
 
-print('== 소인수분해 출력 ==')
+    return prime_factors
 
-input_data = [12, 22, 52, 1524865]
+
+print('== 소인수분해 출력 ==')
+print('-' * 30)
+
+input_data = [12, 15, 52, 72, 36]
 for i in input_data:
-    FractorizationPF(i)
-    print('-' * 25)
+    print(' {} 소인수분해: {}'.format(i, Fractorization(i)))
+    print('-' * 30)
 
 
 
