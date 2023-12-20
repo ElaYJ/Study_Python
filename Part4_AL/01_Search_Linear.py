@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 '''
  # [선형탐색]
 '''
@@ -235,7 +234,10 @@ if __name__ == '__main__':
         print()
 
     print(f' l_nums: {l_nums}\n t_nums: {t_nums}\n r_nums: {r_nums}\n')
-=======
+
+
+
+
 '''
  # [선형탐색]
 '''
@@ -472,4 +474,3 @@ if __name__ == '__main__':
         print()
 
     print(f' l_nums: {l_nums}\n t_nums: {t_nums}\n r_nums: {r_nums}\n')
->>>>>>> e22b1c0dee027ab9846a5dc551183647f971b367

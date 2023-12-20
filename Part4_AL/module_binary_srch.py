@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # <EX> ---------------------------------------------------------------------
 # 숫자로 이루어진 리스트에서 사용자가 입력한 숫자를 검색하는 모듈을 다음 요건에 따라 만들기
 # 1. 검색 모듈은 이진 검색 알고리즘을 이용한다.
@@ -46,7 +45,7 @@ def searchNumberByBinaryAlgorithm(ns, sn):
             searchResultIdx = midIdx
             break
 
-=======
+
 # <EX> ---------------------------------------------------------------------
 # 숫자로 이루어진 리스트에서 사용자가 입력한 숫자를 검색하는 모듈을 다음 요건에 따라 만들기
 # 1. 검색 모듈은 이진 검색 알고리즘을 이용한다.
@@ -94,5 +93,4 @@ def searchNumberByBinaryAlgorithm(ns, sn):
             searchResultIdx = midIdx
             break
 
->>>>>>> e22b1c0dee027ab9846a5dc551183647f971b367
     return searchResultIdx
