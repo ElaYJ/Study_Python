@@ -176,7 +176,7 @@ print()
 # 3. 검색 과정을 로그로 출력한다.
 # 4. 검색에 성공하면 해당 정수의 인덱스를 출력하고, 검색 결과가 없으면 -1을 출력한다.
 
-import module_linear as lnr
+import module_linear_srch as lnr
 import random
 
 if __name__ == '__main__':
