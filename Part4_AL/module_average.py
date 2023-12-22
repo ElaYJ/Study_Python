@@ -6,14 +6,15 @@
 class Top5Players:
 
     def __init__(self, cs, ns):
-        self.currentScores = cs
-        self.newScore = ns
+        self.currentScores = cs # 현재 Top5
+        self.newScore = ns # 내 평균 점수
 
     def setAlignScore(self):
         nearIdx = 0
         nearScore = 0
         minNum = 10.0
 
+        # 근사값 찾기
         for i, s in enumerate(self.currentScores):
             absNum = abs(self.newScore - s)
 
@@ -22,22 +23,22 @@ class Top5Players:
                 nearIdx = i
                 nearScore = s
 
-        # print(f'nearIdx: {nearIdx}')
-        # print(f'nearScore: {nearScore}')
+        print(f'nearIdx: {nearIdx}')
+        print(f'nearScore: {nearScore}')
 
+        # 내 평균점수 끼워넣기
         if self.newScore >= self.currentScores[nearIdx]:
             for i in range(len(self.currentScores)-1, nearIdx, -1):
                 self.currentScores[i] = self.currentScores[i-1]
 
             self.currentScores[nearIdx] = self.newScore
-
         else:
             for i in range(len(self.currentScores)-1, nearIdx+1, -1):
                 self.currentScores[i] = self.currentScores[i-1]
 
             self.currentScores[nearIdx+1] = self.newScore
 
-        # print(f'self.currentScores: {self.currentScores}')
+        print(f'self.currentScores: {self.currentScores}')
 
     def getFinalTop5Scores(self):
         return self.currentScores

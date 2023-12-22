@@ -16,12 +16,12 @@ class MaxAlgorithm:
             if self.maxNum < n:
                 self.maxNum = n
 
-        return self.maxNum;
+        return self.maxNum
 
 ma = MaxAlgorithm([-2, -4, 5, 7, 10, 0, 8, 20, -11])
 maxNum = ma.getMaxNum()
 print(f'maxNum: {maxNum}')
-
+print()
 
 
 
@@ -38,12 +38,12 @@ class MinAlgorithm:
             if self.minNum > n:
                 self.minNum = n
 
-        return self.minNum
+        return self.minNum;
 
 ma = MinAlgorithm([-2, -4, 5, 7, 10, 0, 8, 20, -11])
 minNum = ma.getMinNum()
 print(f'minNum: {minNum}')
-
+print()
 
 
 
@@ -57,6 +57,7 @@ class MaxAlgorithm:
     def __init__(self, cs):
         self.chars = cs
         self.maxChar = 0
+        self.asciis = []
 
     def getMaxChar(self):
         self.maxChar = self.chars[0]
@@ -67,10 +68,20 @@ class MaxAlgorithm:
 
         return self.maxChar
 
+    def getChars(self):
+        return self.chars
+
+    def getASCII(self):
+        self.asciis = [ord(c) for c in self.chars]
+
+        return self.asciis
+
 ma = MaxAlgorithm(['c', 'x', 'Q', 'A', 'e', 'P', 'p'])
+print(f'chars: {ma.getChars()}')
+print(f'ASCII: {ma.getASCII()}')
 maxChar = ma.getMaxChar()
 print(f'maxChar: {maxChar}')
-
+print()
 
 
 # Min
@@ -95,11 +106,12 @@ class MinAlgorithm:
 ma = MinAlgorithm(['c', 'x', 'Q', 'A', 'e', 'P', 'p'])
 minChar = ma.getMinChar()
 print(f'minChar: {minChar}')
+print()
 
 
 
 
-
+import module_maximum as max
 
 # Max
 # <EX> --------------------------------------------------------------------------
@@ -107,7 +119,6 @@ print(f'minChar: {minChar}')
 # 리스트는 1부터 50까지의 난수 30개를 이용하되, 중복이 허용되도록 한다.
 
 import random
-import module_maximum as max
 
 if __name__ == '__main__':
 
@@ -119,6 +130,7 @@ if __name__ == '__main__':
     ma = max.MaxAlgorithm(nums)
     print(f'max num: {ma.getMaxNum()}')
     print(f'max num cnt: {ma.getMaxNumCnt()}')
+print()
 
 
 # <EX> -----------------------------------------------------------------------------
@@ -137,18 +149,18 @@ deviation = max.getDeviation(score_avg, score_max)
 print(f'score_avg: {score_avg}')
 print(f'score_max: {score_max}')
 print(f'deviation: {deviation}')
+print()
 
 
 
+import module_minimum as min
 
-
-# Mix
+# Min
 # <EX> --------------------------------------------------------------------------
 # 최솟값 알고리즘을 이용해서 숫자로 이루어진 리스트에서 최솟값과 최솟값의 개수를 찾는 모듈 만들기
 # 리스트는 1부터 50까지의 난수 30개를 이용하되, 중복이 허용되도록 한다.
 
 import random
-import module_minimum as min
 
 if __name__ == '__main__':
 
@@ -160,6 +172,7 @@ if __name__ == '__main__':
     ma = min.MinAlgorithm(nums)
     print(f'min num: {ma.getMinNum()}')
     print(f'min num cnt: {ma.getMinNumCnt()}')
+print()
 
 
 # <EX> -----------------------------------------------------------------------------
@@ -178,6 +191,7 @@ deviation =  min.getDeviation(scores_avg, scores_min)
 print(f'scores_avg: {scores_avg}')
 print(f'scores_min: {scores_min}')
 print(f'deviation: {deviation}')
+print()
 
 #import mod2
 
@@ -187,4 +201,3 @@ print(f'score_min: {sm.getMinScore()}')
 print(f'score_max: {sm.getMaxScore()}')
 print(f'score_min_deviation: {sm.getMinDeviation()}')
 print(f'score_max_deviation: {sm.getMaxDeviation()}')
-

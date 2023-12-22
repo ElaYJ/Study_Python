@@ -8,7 +8,7 @@ import random
 nums = random.sample(range(0, 50), 20)
 print(f'nums: {nums}')
 
-inputNum = int(input('input number: '))
+inputNum = random.randint(0,49)#int(input('input number: '))
 print(f'inputNum: {inputNum}')
 nearNum = 0
 minNum = 50
@@ -21,7 +21,7 @@ for n in nums:
         nearNum = n
 
 print(f'nearNum: {nearNum}')
-
+print()
 
 
 
@@ -39,18 +39,21 @@ print(f'nearNum: {nearNum}')
 
 import module_approximate as near
 
-scores = []
+# scores = []
+#
+# kor = int(input('input kor score: '))
+# scores.append(kor)
+# eng = int(input('input eng score: '))
+# scores.append(eng)
+# mat = int(input('input mat score: '))
+# scores.append(mat)
+# sci = int(input('input sci score: '))
+# scores.append(sci)
+# his = int(input('input his score: '))
+# scores.append(his)
 
-kor = int(input('input kor score: '))
-scores.append(kor)
-eng = int(input('input eng score: '))
-scores.append(eng)
-mat = int(input('input mat score: '))
-scores.append(mat)
-sci = int(input('input sci score: '))
-scores.append(sci)
-his = int(input('input his score: '))
-scores.append(his)
+scores = [random.randint(50,100) for i in range(5)]
+print(scores)
 
 totalScore = sum(scores)
 print(f'totalScore: {totalScore}')
@@ -60,7 +63,7 @@ print(f'avgScore: {avgScore}')
 
 grade = near.getNearNum(avgScore)
 print(f'grade: {grade}')
-
+print()
 
 
 
@@ -71,13 +74,15 @@ print(f'grade: {grade}')
 
 #import nearMod
 
-depth = int(float(input('input depth: ')))
-print(f'depth: {depth}m')
+depth = random.randint(0, 3500) / 100#int(float(input('input depth: ')))
+print(f'float depth: {depth}m')
+depth = int(depth)
+print(f'int depth: {depth}')
 
 na = near.NearAlgorithm(depth)
 temp = na.getNearNumber()
 print(f'water temperature: {temp}도')
-
+print()
 
 
 
@@ -88,8 +93,9 @@ print(f'water temperature: {temp}도')
 
 #import nearMod
 
-uWeight = float(input('input weight(Kg): '))
-uHeight = float(input('input height(m): '))
+uWeight = float(random.randint(40, 100)) #float(input('input weight(Kg): '))
+uHeight = float(random.randint(145, 190)/100) #float(input('input height(m): '))
+print(f'user weight: {uWeight}\nuser height: {uHeight}')
 
 na = near.BmiAlgorithm(uWeight, uHeight)
 na.calculatorBMI()

@@ -74,6 +74,7 @@ def getMaxOrMin(ns, maxFlag = True):
     return resultN
 
 
+# Class로 구조화
 class ScoreManagement:
 
     def __init__(self, ss):
@@ -84,6 +85,7 @@ class ScoreManagement:
         self.score_max = 0
 
     def getMinScore(self):
+        # scores가 초기화되지 않았다면...
         if self.scores == None or len(self.scores) == 0:
             return None
 
@@ -109,6 +111,7 @@ class ScoreManagement:
         if self.scores == None or len(self.scores) == 0:
             return None
 
+        # 초기화하지 않으면 외부에서 호출할 때마다 값이 누적된다.
         self.score_tot = 0
         for score in self.scores:
             self.score_tot += score

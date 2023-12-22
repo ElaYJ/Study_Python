@@ -32,7 +32,8 @@ maxAlo.setMaxIdxAndNum()
 maxNum = maxAlo.getMaxNum()
 print(f'maxNum: {maxNum}')
 
-indexes = [0 for i in range(maxNum + 1)]
+#indexes = [0 for i in range(maxNum + 1)]
+indexes = [0] * (maxNum+1)
 print(f'indexes: {indexes}')
 print(f'indexes length: {len(indexes)}')
 
@@ -51,48 +52,25 @@ print(f'즉, {maxNumIdx}의 빈도수가 {maxNum}로 가장 높다.')
 
 
 
+import module_mode as mode
 
 # <Q> -----------------------------------------------------------------------------
 # 최빈값 알고리즘을 이용해서 학생 100명의 점수 분포를 출력
 
-class MaxAlgorithm:
-
-    def __init__(self, ns):
-        self.nums = ns
-        self.maxNum = 0
-        self.maxNumIdx = 0
-
-    def setMaxIdxAndNum(self):
-        self.maxNum = self.nums[0]
-        self.maxNumIdx = 0
-
-        for i, n in enumerate(self.nums):
-            if self.maxNum < n:
-                self.maxNum = n
-                self.maxNumIdx = i
-
-    def getMaxNum(self):
-        return self.maxNum
-
-    def getMaxNumIdx(self):
-        return self.maxNumIdx
-
-
-#import maxScore as ms
 import random
 
 scores = []
 
 for i in range(100):
     rn = random.randint(71, 100)
-    if rn != 100: rn = rn - (rn % 5)
+    if rn != 100: rn = rn - (rn % 5) # 점수를 5단위로 맞춤
     scores.append(rn)
 
 print(f'scores: {scores}')
 print(f'scores length: {len(scores)}')
 
 # 최댓값 알고리즘
-maxAlo = MaxAlgorithm(scores)
+maxAlo = mode.QMaxAlgorithm(scores)
 maxAlo.setMaxIdxAndNum()
 maxNum = maxAlo.getMaxNum()
 print(f'maxNum: {maxNum}')
@@ -107,10 +85,19 @@ for n in scores:
     indexes[n] = indexes[n] + 1
 print(f'indexes: {indexes}')
 
+# 인덱스 Dic으로 생성
+dic_indexes = {n:0 for n in nums}
+print(dic_indexes)
+
+for n in nums:
+    dic_indexes[n] += 1
+print(f'indexes: {dic_indexes}')
+
+# 빈도수 별 찍기
 n = 1
 while True:
 
-    maxAlo = MaxAlgorithm(indexes)
+    maxAlo = mode.QMaxAlgorithm(indexes)
     maxAlo.setMaxIdxAndNum()
     maxNum = maxAlo.getMaxNum()
     maxNumIdx = maxAlo.getMaxNumIdx()
@@ -134,7 +121,7 @@ while True:
 # 다음은 어떤 회사의 전직원 나이를 나타내는 리스트이다.
 
 #import maxMod
-import module_mode as mode
+#import module_mode as mode
 
 ages = [25, 27, 27, 24, 31, 34, 33, 31, 29, 25,
         45, 37, 38, 46, 47, 22, 24, 29, 33, 35,
@@ -143,7 +130,7 @@ ages = [25, 27, 27, 24, 31, 34, 33, 31, 29, 25,
 
 print(f'employee cnt: {len(ages)}명')
 
-maxAlg = mode.MaxAlgorithm(ages)
+maxAlg = mode.EXMaxAlgorithm(ages)
 maxAlg.setMaxIdxAndNum()
 maxAge = maxAlg.getMaxNum()
 print(f'maxAge: {maxAge}세')

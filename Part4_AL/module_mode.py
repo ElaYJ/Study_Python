@@ -1,8 +1,34 @@
+# <Q> -----------------------------------------------------------------------------
+# 최빈값 알고리즘을 이용해서 학생 100명의 점수 분포를 출력
+
+class QMaxAlgorithm:
+
+    def __init__(self, ns):
+        self.nums = ns
+        self.maxNum = 0
+        self.maxNumIdx = 0
+
+    def setMaxIdxAndNum(self):
+        self.maxNum = self.nums[0]
+        self.maxNumIdx = 0
+
+        for i, n in enumerate(self.nums):
+            if self.maxNum < n:
+                self.maxNum = n
+                self.maxNumIdx = i
+
+    def getMaxNum(self):
+        return self.maxNum
+
+    def getMaxNumIdx(self):
+        return self.maxNumIdx
+
+
 # <EX> ----------------------------------------------------------------------------
 # 최빈값 알고리즘을 이용해 나이 분포를 간단한 그래프로 출력하는 모듈
 # 다음은 어떤 회사의 전직원 나이를 나타내는 리스트이다.
 
-class MaxAlgorithm:
+class EXMaxAlgorithm:
 
     def __init__(self, ns):
         self.nums = ns
@@ -55,7 +81,7 @@ class ModeAlgorithm:
         n = 1
         while True:
 
-            maxAlo = MaxAlgorithm(self.indexes)
+            maxAlo = EXMaxAlgorithm(self.indexes)
             maxAlo.setMaxIdxAndNum()
             maxNum = maxAlo.getMaxNum()
             maxNumIdx = maxAlo.getMaxNumIdx()

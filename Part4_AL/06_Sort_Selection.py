@@ -4,32 +4,37 @@
 '''
 
 nums = [4, 2, 5, 1, 3]
+print(f'initial nums: {nums}')
 
 for i in range(len(nums)-1):
 	minIdx = i
 
+    # 최소값 찾기
 	for j in range(i+1, len(nums)):
 		if nums[minIdx] > nums[j]:
 			minIdx = j
 
+
 	tempNum = nums[i]
 	nums[i] = nums[minIdx]
 	nums[minIdx] = tempNum
-	# nums[i], nums[minIdx] = nums[minIdx], nums[i]
 
-print(f'nums: {nums}')
-
+        print(f'nums: {nums}')
 
 
+print(f'final nums: {nums}')
+print()
 
 
+
+
+import module_sort_selection as sm
+import random
 
 # <Q> ------------------------------------------------------------------------
 # 선택정렬 알고리즘을 이용해서 학생 20명의 시험 점수를 오름차순과 내림차순으로 정렬하는 모듈
 # 시험 점수는 50 부터 100 까지로 한다.
 
-import random
-import module_sort_selection as sm
 import copy
 
 scores = random.sample(range(50, 101), 20)
@@ -45,9 +50,6 @@ print(f'result(ASC): {result}')
 # result = sm.sortNumber(scores, asc=False)
 result = sm.sortNumber(copy.deepcopy(scores), asc=False)
 print(f'result(DESC): {result}')
-
-
-
 
 
 # <EX> ---------------------------------------------------------------------------

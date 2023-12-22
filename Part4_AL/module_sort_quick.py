@@ -1,28 +1,5 @@
-# def qSort(ns):
-#
-#     if len(ns) < 2:
-#         return ns
-#
-#     midIdx = len(ns) // 2
-#     midVal = ns[midIdx]
-#
-#     smallNums = []
-#     sameNums = []
-#     bigNums = []
-#
-#
-#     for n in ns:
-#         if n < midVal:
-#             smallNums.append(n)
-#         elif n == midVal:
-#             sameNums.append(n)
-#         else:
-#             bigNums.append(n)
-#
-#     return qSort(smallNums) + sameNums + qSort(bigNums)
 
-
-def qSort(ns, asc=True):
+def quickSort(ns, asc=True):
 
     if len(ns) < 2:
         return ns
@@ -30,10 +7,8 @@ def qSort(ns, asc=True):
     midIdx = len(ns) // 2
     midVal = ns[midIdx]
 
-    smallNums = []
-    sameNums = []
-    bigNums = []
 
+    smallNums = []; sameNums = []; bigNums = []
 
     for n in ns:
         if n < midVal:
@@ -44,12 +19,12 @@ def qSort(ns, asc=True):
             bigNums.append(n)
 
     if asc:
-        return qSort(smallNums, asc=asc) + sameNums + qSort(bigNums, asc=asc)
+        return quickSort(smallNums, asc=asc) + sameNums + quickSort(bigNums, asc=asc)
     else:
-        return qSort(bigNums, asc=asc) + sameNums + qSort(smallNums, asc=asc)
+        return quickSort(bigNums, asc=asc) + sameNums + quickSort(smallNums, asc=asc)
 
 
 if __name__ == '__main__':
     nums = [8, 1, 4, 3, 2, 5, 4, 10, 6, 8]
-    print(f'quick sorted nums: {qSort(nums)}')
-    print(f'quick sorted nums: {qSort(nums, asc=False)}')
+    print(f'quick sorted nums: {quickSort(nums)}')
+    print(f'quick sorted nums: {quickSort(nums, asc=False)}')

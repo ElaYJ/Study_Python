@@ -7,14 +7,15 @@ def qSort(ns):
     if len(ns) < 2:
         return ns
 
+    # pivot 기준값 설정
     midIdx = len(ns) // 2
     midVal = ns[midIdx]
 
-    smallNums = []
-    sameNums = []
-    bigNums = []
+    smallNums = [] # pivot보다 작은 수
+    sameNums = [] # pivot과 같은 수
+    bigNums = [] # pivot보다 큰 수
 
-
+    # pivot과 비교 연산
     for n in ns:
         if n < midVal:
             smallNums.append(n)
@@ -28,7 +29,7 @@ def qSort(ns):
 
 nums = [8, 1, 4, 3, 2, 5, 4, 10, 6, 8]
 print(qSort(nums))
-
+print()
 
 
 
@@ -42,16 +43,9 @@ print(qSort(nums))
 import random as rd
 import module_sort_quick as sm
 
-rNums = rd.sample(range(1, 101), 10)
-print(f'not sorted rNums: {sm.qSort(rNums)}')
-print(f'merge sorted rNums by ASC: {sm.qSort(rNums)}')
-print(f'merge sorted rNums by DESC: {sm.qSort(rNums, asc=False)}')
+rNums = rd.sample(range(1, 100), 10)
+print(f'not sorted rNums: {sm.quickSort(rNums)}')
+print(f'merge sorted rNums by ASC: {sm.quickSort(rNums)}')
+print(f'merge sorted rNums by DESC: {sm.quickSort(rNums, asc=False)}')
 
-
-
-
-
-
-# <EX> ----------------------------------------------------------------------------
-#
 

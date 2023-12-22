@@ -51,6 +51,7 @@ class NearAlgorithm:
                 self.minNum = absNum
                 self.nearNum = n
 
+        print(f'near value: {self.nearNum}')
         return self.temps[self.nearNum]
 
 
