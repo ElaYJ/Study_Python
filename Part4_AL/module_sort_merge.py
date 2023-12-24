@@ -76,38 +76,38 @@ if __name__ == '__main__':
 # 숫자로 이루어진 리스트를 선택정렬 알고리즘을 이용해서 오름차순과 내림차순으로 정렬하는 모듈만들기
 # 단, 정렬하는 과정도 출력한다
 
-# def mSort(ns, asc=True):
-#     if len(ns) < 2:
-#         return ns
-#
-#     midIdx = len(ns) // 2
-#     leftNums = mSort(ns[0:midIdx], asc=asc)
-#     rightNums = mSort(ns[midIdx:len(ns)], asc=asc)
-#
-#     mergedNums = []
-#     leftIdx = 0; rightIdx = 0
-#     while leftIdx < len(leftNums) and rightIdx < len(rightNums):
-#
-#         if asc:
-#             if leftNums[leftIdx] < rightNums[rightIdx]:
-#                 mergedNums.append(leftNums[leftIdx])
-#                 leftIdx += 1
-#             else:
-#                 mergedNums.append(rightNums[rightIdx])
-#                 rightIdx += 1
-#
-#         else:
-#             if leftNums[leftIdx] > rightNums[rightIdx]:
-#                 mergedNums.append(leftNums[leftIdx])
-#                 leftIdx += 1
-#             else:
-#                 mergedNums.append(rightNums[rightIdx])
-#                 rightIdx += 1
-#
-#     mergedNums += leftNums[leftIdx:]
-#     mergedNums += rightNums[rightIdx:]
-#
-#     print(f'mergedNums: {mergedNums}')
-#     return mergedNums
+def mergeSortAlgorithm(arr, asc=True):
+    if len(arr) < 2:
+        return arr
+
+    mid_idx = len(arr) // 2
+    left_area = mergeSortAlgorithm(arr[:mid_idx], asc=asc)
+    right_area = mergeSortAlgorithm(arr[mid_idx:], asc=asc)
+
+    sorted_area = []
+    l_idx = 0; r_idx = 0
+    while l_idx < len(left_area) and r_idx < len(right_area):
+
+        if asc:
+            if left_area[l_idx] < right_area[r_idx]:
+                sorted_area.append(left_area[l_idx])
+                l_idx += 1
+            else:
+                sorted_area.append(right_area[r_idx])
+                r_idx += 1
+
+        else:
+            if left_area[l_idx] > right_area[r_idx]:
+                sorted_area.append(left_area[l_idx])
+                l_idx += 1
+            else:
+                sorted_area.append(right_area[r_idx])
+                r_idx += 1
+
+    sorted_area.extend(left_area[l_idx:])
+    sorted_area.extend(right_area[r_idx:])
+
+    print(f'mergedNums: {sorted_area}')
+    return sorted_area
 
 

@@ -211,71 +211,71 @@ elif exe_no == 5:
 # Dic 조회 ==========================================================================================
 # keys(), values(), items()
 
-    # memInfo = {'이름':'홍길동', '메일':'gildong@gmail.com', '학년':3, '취미':['농구', '게임']}
-    #
-    # ks = memInfo.keys()
-    # print(f'keys : {ks}')
-    # print(f'keys type : {type(ks)}')
-    #
-    # vs = memInfo.values()
-    # print(f'values : {vs}')
-    # print(f'values type : {type(vs)}')
-    #
-    # items = memInfo.items()
-    # print(f'items : {items}')
-    # print(f'items type : {type(items)}')
-    #
-    #
-    # ks = list(ks)
-    # print(f'keys : {ks}')
-    # print(f'keys type : {type(ks)}')
-    #
-    # print(f'keys[0] : {ks[0]}')
-    # print(f'keys[1] : {ks[1]}')
-    # print(f'keys[2] : {ks[2]}')
-    # print(f'keys[3] : {ks[3]}')
-    #
-    #
-    # vs = list(vs)
-    # print(f'values : {vs}')
-    # print(f'values type : {type(vs)}')
-    #
-    # print(f'values[0] : {vs[0]}')
-    # print(f'values[1] : {vs[1]}')
-    # print(f'values[2] : {vs[2]}')
-    # print(f'values[3] : {vs[3]}')
-    #
-    #
-    # items = list(items)
-    # print(f'items : {items}')
-    # print(f'items type : {type(items)}')
-    #
-    # print(f'items[0] : {items[0]}')
-    # print(f'items[1] : {items[1]}')
-    # print(f'items[2] : {items[2]}')
-    # print(f'items[3] : {items[3]}')
-    #
-    #
-    # for key in ks:
-    #     print(f'key: {key}')
-    #
-    # for idx, key in enumerate(ks):
-    #     print(f'idx, key: {idx}, {key}')
-    #
-    # for value in vs:
-    #     print(f'value: {value}')
-    #
-    # for idx, value in enumerate(vs):
-    #     print(f'idx, value: {idx}, {value}')
-    #
-    # for item in items:
-    #     print(f'item: {item}')
-    #
-    # for idx, item in enumerate(items):
-    #     print(f'idx, item: {idx}, {item}')
-    #
-    # for key in memInfo.keys():
-    #     print(f'{key}: {memInfo[key]}')
+    memInfo = {'이름':'홍길동', '메일':'gildong@gmail.com', '학년':3, '취미':['농구', '게임']}
+
+    ks = memInfo.keys()
+    print(f'keys : {ks}')
+    print(f'keys type : {type(ks)}')
+
+    vs = memInfo.values()
+    print(f'values : {vs}')
+    print(f'values type : {type(vs)}')
+
+    items = memInfo.items()
+    print(f'items : {items}')
+    print(f'items type : {type(items)}')
+
+
+    ks = list(ks)
+    print(f'keys : {ks}')
+    print(f'keys type : {type(ks)}')
+
+    print(f'keys[0] : {ks[0]}')
+    print(f'keys[1] : {ks[1]}')
+    print(f'keys[2] : {ks[2]}')
+    print(f'keys[3] : {ks[3]}')
+
+
+    vs = list(vs)
+    print(f'values : {vs}')
+    print(f'values type : {type(vs)}')
+
+    print(f'values[0] : {vs[0]}')
+    print(f'values[1] : {vs[1]}')
+    print(f'values[2] : {vs[2]}')
+    print(f'values[3] : {vs[3]}')
+
+
+    items = list(items)
+    print(f'items : {items}')
+    print(f'items type : {type(items)}')
+
+    print(f'items[0] : {items[0]}')
+    print(f'items[1] : {items[1]}')
+    print(f'items[2] : {items[2]}')
+    print(f'items[3] : {items[3]}')
+
+
+    for key in ks:
+        print(f'key: {key}')
+
+    for idx, key in enumerate(ks):
+        print(f'idx, key: {idx}, {key}')
+
+    for value in vs:
+        print(f'value: {value}')
+
+    for idx, value in enumerate(vs):
+        print(f'idx, value: {idx}, {value}')
+
+    for item in items:
+        print(f'item: {item}')
+
+    for idx, item in enumerate(items):
+        print(f'idx, item: {idx}, {item}')
+
+    for key in memInfo.keys():
+        print(f'{key}: {memInfo[key]}')
 
 
     # <Q> 학생의 시험 점수가 60점 미만이면 ‘F(재시험)’으로 값을 변경하는 코드

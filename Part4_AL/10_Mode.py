@@ -27,9 +27,9 @@ class MaxAlgorithm:
 
 nums = [1, 3, 7, 6, 7, 7, 7, 12, 12, 17]
 
-maxAlo = MaxAlgorithm(nums)
-maxAlo.setMaxIdxAndNum()
-maxNum = maxAlo.getMaxNum()
+maxAl = MaxAlgorithm(nums)
+maxAl.setMaxIdxAndNum()
+maxNum = maxAl.getMaxNum()
 print(f'maxNum: {maxNum}')
 
 #indexes = [0 for i in range(maxNum + 1)]
@@ -41,18 +41,34 @@ for n in nums:
     indexes[n] = indexes[n] + 1
 print(f'indexes: {indexes}')
 
-maxAlo = MaxAlgorithm(indexes)
-maxAlo.setMaxIdxAndNum()
-maxNum = maxAlo.getMaxNum()
-maxNumIdx = maxAlo.getMaxNumIdx()
-print(f'maxNum: {maxNum}')
-print(f'maxNumIdx: {maxNumIdx}')
+maxAl = MaxAlgorithm(indexes)
+maxAl.setMaxIdxAndNum()
+max_mode = maxAl.getMaxNum()
+max_mode_num = maxAl.getMaxNumIdx()
+print(f'max_mode: {max_mode}')
+print(f'max_mode_num: {max_mode_num}')
+print(f'즉, {max_mode_num}의 빈도수가 {max_mode}로 가장 높다.')
+print()
 
-print(f'즉, {maxNumIdx}의 빈도수가 {maxNum}로 가장 높다.')
+print(nums)
+
+dic_idxs = {}
+for n in nums:
+    if n not in dic_idxs:
+        dic_idxs[n] = 0
+    dic_idxs[n] += 1
+print(dic_idxs)
+
+max_mode = 0; mode_num = 0
+for key, val in dic_idxs.items():
+    if max_mode < val:
+        max_mode = val
+        mode_num = key
+print(f'즉, {mode_num}의 빈도수가 {max_mode}로 가장 높다.')
+print()
 
 
-
-import module_mode as mode
+import module_mode as md
 
 # <Q> -----------------------------------------------------------------------------
 # 최빈값 알고리즘을 이용해서 학생 100명의 점수 분포를 출력
@@ -70,9 +86,9 @@ print(f'scores: {scores}')
 print(f'scores length: {len(scores)}')
 
 # 최댓값 알고리즘
-maxAlo = mode.QMaxAlgorithm(scores)
-maxAlo.setMaxIdxAndNum()
-maxNum = maxAlo.getMaxNum()
+maxAl = md.QMaxAlgorithm(scores)
+maxAl.setMaxIdxAndNum()
+maxNum = maxAl.getMaxNum()
 print(f'maxNum: {maxNum}')
 
 # 인덱스 리스트 생성
@@ -85,22 +101,15 @@ for n in scores:
     indexes[n] = indexes[n] + 1
 print(f'indexes: {indexes}')
 
-# 인덱스 Dic으로 생성
-dic_indexes = {n:0 for n in nums}
-print(dic_indexes)
-
-for n in nums:
-    dic_indexes[n] += 1
-print(f'indexes: {dic_indexes}')
 
 # 빈도수 별 찍기
 n = 1
 while True:
 
-    maxAlo = mode.QMaxAlgorithm(indexes)
-    maxAlo.setMaxIdxAndNum()
-    maxNum = maxAlo.getMaxNum()
-    maxNumIdx = maxAlo.getMaxNumIdx()
+    maxAl = md.QMaxAlgorithm(indexes)
+    maxAl.setMaxIdxAndNum()
+    maxNum = maxAl.getMaxNum()
+    maxNumIdx = maxAl.getMaxNumIdx()
     # print(f'maxNum: {maxNum}')
     # print(f'maxNumIdx: {maxNumIdx}')
 
@@ -113,6 +122,36 @@ while True:
 
     n += 1
 
+# 인덱스 Dic으로 생성
+# dic_indexes = {n:0 for n in nums}
+# print(dic_indexes)
+
+dic_indexes = {}
+for n in scores:
+    if n not in dic_indexes: # dict에 해당 키가 없으면 +1연산을 할 수 없으므로 0으로 초기화 해준다.
+        dic_indexes[n] = 0
+    dic_indexes[n] += 1
+print(f'dic_indexes: {dic_indexes}')
+
+ordered_mode = {}
+n = 1
+while True:
+
+    max_freq = 0; mode_num = 0
+    for score, frequency in dic_indexes.items():
+        if max_freq < frequency:
+            max_freq = frequency
+            mode_num = score
+
+    if len(dic_indexes) == 0: break
+
+    print(f'{n}. {mode_num:>3}점 빈도수: {max_freq:>2}\t' + ('+' * max_freq))
+
+    # 해당 요소를 삭제해서 비교 횟수를 줄이고 빈도수로 정렬된 새로운 dict를 생성한다.
+    ordered_mode[mode_num] = dic_indexes.pop(mode_num)
+    n += 1
+
+print(ordered_mode, dic_indexes)
 
 
 
@@ -130,18 +169,24 @@ ages = [25, 27, 27, 24, 31, 34, 33, 31, 29, 25,
 
 print(f'employee cnt: {len(ages)}명')
 
-maxAlg = mode.EXMaxAlgorithm(ages)
+maxAlg = md.MaxAlgorithm(ages)
 maxAlg.setMaxIdxAndNum()
 maxAge = maxAlg.getMaxNum()
 print(f'maxAge: {maxAge}세')
 
-modAlg = mode.ModeAlgorithm(ages, maxAge)
+modAlg = md.ModeAlgorithm(ages, maxAge)
 modAlg.setIndexList()
 print(f'IndexList: {modAlg.getIndexList()}')
 
 modAlg.printAges()
+print()
 
+myMode = md.myModeAlgorithm(ages, maxAge)
+myMode.setIndexList()
+print(f'IndexList: {myMode.getIndexList()}')
 
+myMode.printAges()
+print()
 
 # <EX> ----------------------------------------------------------------------------
 # 최빈도 알고리즘을 이용해 모든 회차의 각 번호에 대한 빈도수를 출력하는 프로그램
@@ -160,9 +205,9 @@ lottoNums = [[13, 23, 15, 5, 6, 39], [36, 13, 5, 3, 30, 16], [43, 1, 15, 9, 3, 3
              [41, 32, 16, 6, 26, 33], [12, 43, 10, 29, 39, 9], [41, 9, 23, 35, 18, 17],
              [35, 38, 3, 28, 36, 31], [21, 44, 4, 29, 18, 7], [20, 23, 6, 2, 34, 44]]
 
-lm = mode.LottoMode(lottoNums)
+lm = md.LottoMode(lottoNums)
 mList = lm.getLottoNumMode()
-# print(f'mList: {mList}')
+print(f'mList: {mList}')
 
 lm.printModeList()
 

@@ -3,7 +3,7 @@
 # 시험 점수는 50 부터 100 까지로 한다.
 
 
-def sortNum(ns, asc=True):
+def sortNumber(ns, asc=True):
 
     if asc:
         for i in range(len(ns) - 1):
@@ -28,9 +28,7 @@ def sortNum(ns, asc=True):
     return ns
 
 
-def sortNumber(ns, asc=True):
-
-    cnt = 0
+def selectionSort(ns, asc=True):
 
     for i in range(len(ns) - 1):
         targetIdx = i
@@ -39,15 +37,11 @@ def sortNumber(ns, asc=True):
             if asc:
                 if ns[targetIdx] > ns[j]:
                     targetIdx = j
-                    cnt += 1
             else:
                 if ns[targetIdx] < ns[j]:
                     targetIdx = j
-                    cnt += 1
 
         ns[i], ns[targetIdx] = ns[targetIdx], ns[i]
-
-    print(f'cnt: {cnt}')
 
     return ns
 
@@ -59,27 +53,51 @@ def sortNumber(ns, asc=True):
 # 숫자로 이루어진 리스트를 선택정렬 알고리즘을 이용해서 오름차순과 내림차순으로 정렬하는 모듈
 # 단, 정렬하는 과정도 출력한다
 
-import copy
+from copy import deepcopy
 
-def sortSelectSortAlgorithm(ns, asc=True):
+def selectSortAlgorithm(ns, asc=True):
 
-    c_ns = copy.copy(ns)
+    c_ns = deepcopy(ns)
 
     for i in range(len(c_ns) - 1):
-        minIdx = i
+        switch_idx = i
 
         for j in range(i + 1, len(c_ns)):
 
-            if asc:     # ascending
-                if c_ns[minIdx] > c_ns[j]:
-                    minIdx = j
-            else:       # descending
-                if c_ns[minIdx] < c_ns[j]:
-                    minIdx = j
+            # ascending - minimum value
+            if asc:
+                if c_ns[switch_idx] > c_ns[j]:
+                    switch_idx = j
+            # descending - maximum value
+            else:
+                if c_ns[switch_idx] < c_ns[j]:
+                    switch_idx = j
 
-        c_ns[i], c_ns[minIdx] = c_ns[minIdx], c_ns[i]
+        c_ns[i], c_ns[switch_idx] = c_ns[switch_idx], c_ns[i]
 
         print(f'nums: {c_ns}')
 
     return c_ns
 
+def selectionSortAlgorithm(ns, asc=True):
+
+    c_ns = deepcopy(ns)
+
+    for i in range(len(c_ns) - 1):
+
+        switch_idx = i
+        for j in range(i + 1, len(c_ns)):
+
+            if asc:
+                if c_ns[switch_idx] > c_ns[j]:
+                    switch_idx = j
+            else:
+                if c_ns[switch_idx] < c_ns[j]:
+                    switch_idx = j
+
+        if switch_idx != i:
+            c_ns[i], c_ns[switch_idx] = c_ns[switch_idx], c_ns[i]
+
+        print(f'nums: {c_ns}')
+
+    return c_ns

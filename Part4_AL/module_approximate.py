@@ -74,7 +74,7 @@ class BmiAlgorithm:
         self.minNum = 25
 
     def calculatorBMI(self):
-        self.userBMI = round(self.userWeight / (self.userHeight * self.userHeight), 2)
+        self.userBMI = round(self.userWeight / (self.userHeight ** 2), 2)
         print(f'userBMI: {self.userBMI}')
 
     def printUserCondition(self):

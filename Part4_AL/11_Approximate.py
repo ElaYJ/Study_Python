@@ -5,7 +5,7 @@
 
 import random
 
-nums = random.sample(range(0, 50), 20)
+nums = random.sample(range(0, 50), 10)
 print(f'nums: {nums}')
 
 inputNum = random.randint(0,49)#int(input('input number: '))
@@ -15,7 +15,7 @@ minNum = 50
 
 for n in nums:
     absNum = abs(n - inputNum)
-    # print(f'absNum: {absNum}')
+    print(f'absNum: {absNum}')
     if absNum < minNum:
         minNum = absNum
         nearNum = n
@@ -95,7 +95,7 @@ print()
 
 uWeight = float(random.randint(40, 100)) #float(input('input weight(Kg): '))
 uHeight = float(random.randint(145, 190)/100) #float(input('input height(m): '))
-print(f'user weight: {uWeight}\nuser height: {uHeight}')
+print(f'user weight: {uWeight}kg\nuser height: {uHeight}m')
 
 na = near.BmiAlgorithm(uWeight, uHeight)
 na.calculatorBMI()

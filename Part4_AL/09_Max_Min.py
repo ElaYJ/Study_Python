@@ -52,7 +52,7 @@ print()
 # <Q> -----------------------------------------------------------------
 # 리스트에서 아스키코드가 가장 큰 값을 찾는 알고리즘
 
-class MaxAlgorithm:
+class MaxASCII:
 
     def __init__(self, cs):
         self.chars = cs
@@ -72,11 +72,12 @@ class MaxAlgorithm:
         return self.chars
 
     def getASCII(self):
-        self.asciis = [ord(c) for c in self.chars]
+        if len(self.asciis) < 1:
+            self.asciis = [ord(c) for c in self.chars]
 
         return self.asciis
 
-ma = MaxAlgorithm(['c', 'x', 'Q', 'A', 'e', 'P', 'p'])
+ma = MaxASCII(['c', 'x', 'Q', 'A', 'e', 'P', 'p'])
 print(f'chars: {ma.getChars()}')
 print(f'ASCII: {ma.getASCII()}')
 maxChar = ma.getMaxChar()
@@ -88,22 +89,45 @@ print()
 # <Q> -----------------------------------------------------------------
 # 리스트에서 아스키코드가 가장 작은 값을 찾는 알고리즘
 
-class MinAlgorithm:
+class MinASCII:
 
     def __init__(self, cs):
         self.chars = cs
         self.minChar = 0
+        self.asciis = []
 
     def getMinChar(self):
-        self.minChar = self.chars[0]
+        asciis = self.getASCII()
 
-        for c in self.chars:
-            if ord(self.minChar) > ord(c):
-                self.minChar = c
+        minAscii = asciis[0]
+
+        for cNo in asciis:
+            if minAscii > cNo:
+                minAscii = cNo
+
+        self.minChar = chr(minAscii)
 
         return self.minChar
+        # self.minChar = self.chars[0]
+        #
+        # for c in self.chars:
+        #     if ord(self.minChar) > ord(c):
+        #         self.minChar = c
+        #
+        # return self.minChar
 
-ma = MinAlgorithm(['c', 'x', 'Q', 'A', 'e', 'P', 'p'])
+    def getChars(self):
+        return self.chars
+
+    def getASCII(self):
+        if len(self.asciis) < 1:
+            self.asciis = [ord(c) for c in self.chars]
+
+        return self.asciis
+
+ma = MinASCII(['c', 'x', 'Q', 'A', 'e', 'P', 'p'])
+print(f'chars: {ma.getChars()}')
+print(f'ASCII: {ma.getASCII()}')
 minChar = ma.getMinChar()
 print(f'minChar: {minChar}')
 print()
@@ -122,9 +146,10 @@ import random
 
 if __name__ == '__main__':
 
-    nums = []
-    for n in range(30):
-        nums.append(random.randint(1, 50))
+    # nums = []
+    # for n in range(30):
+    #     nums.append(random.randint(1, 50))
+    nums = [random.randint(1, 50) for n in range(30)]
 
     print(f'nums:\n{nums}')
     ma = max.MaxAlgorithm(nums)
@@ -164,9 +189,7 @@ import random
 
 if __name__ == '__main__':
 
-    nums = []
-    for n in range(30):
-        nums.append(random.randint(1, 50))
+    nums = [random.randint(1, 50) for n in range(30)]
 
     print(f'nums:\n{nums}')
     ma = min.MinAlgorithm(nums)

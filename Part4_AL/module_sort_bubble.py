@@ -46,3 +46,35 @@ def sortBybubleSortAlgorithm(ns, asc=True):
 
     return c_ns
 
+def improvedBubbleSort(arr, asc=True):
+
+    copy_arr = copy.copy(arr)
+
+    length = len(copy_arr) - 1
+    i = 0
+    for i in range(length):
+        cnt = 0
+        for j in range(length - i):
+
+            if asc:
+                if copy_arr[j] > copy_arr[j+1]:
+                    copy_arr[j], copy_arr[j+1] = copy_arr[j+1], copy_arr[j]
+                    cnt += 1
+            else:
+                if copy_arr[j] < copy_arr[j+1]:
+                    copy_arr[j], copy_arr[j+1] = copy_arr[j+1], copy_arr[j]
+                    cnt += 1
+
+            print(f'arr: {copy_arr}\t cnt: {cnt}')
+        print()
+
+        if cnt == 0:
+            if i == 0:
+                print('이미 정렬된 데이터입니다.')
+            else:
+                print(f'예상되는 총 {length}회전 중 {i+1}회전으로 정렬 완료!!')
+
+            return copy_arr
+
+    print(f'예상되는 총 {length}회전 중 {i+1}회전으로 정렬 완료!!')
+    return copy_arr

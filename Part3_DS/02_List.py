@@ -1,6 +1,7 @@
 '''
  # [리스트]
 '''
+import random
 
 exe_no = int(input('EXE NO. '))
 if  exe_no == 1:
@@ -26,6 +27,18 @@ if  exe_no == 1:
                      '3시-자료정리',
                      '6시-운동', '9시-TV시청']
     print(todaySchedule)
+
+
+# 리스트 초기화
+    ranks = [0 for i in range(10)]
+    print(ranks)
+
+    indexes = [0] * 10
+    print(indexes)
+
+    import random
+    scores = [random.randint(50,101) for i in range(5)]
+    print(scores)
 
 
 elif  exe_no == 2:
@@ -380,14 +393,14 @@ elif exe_no == 6:
 # 가장 좋아하는 스포츠가 몇 번째에 있는지 출력하는 프로그램
 
     sports = ['농구', '야구', '축구', '마라톤', '테니스']
-    favoriteSport = input('가장 좋아하는 스포츠 입력: ')
+    favoriteSport = random.choice(sports) # input('가장 좋아하는 스포츠 입력: ')
 
     bestSportIdx = 0
     for idx, value in enumerate(sports):
         if value == favoriteSport:
             bestSportIdx = idx + 1
 
-    print('{}(은)는 {}몇 번째에 있습니다.'.format(favoriteSport, bestSportIdx))
+    print('{}(은)는 {}번째에 있습니다.'.format(favoriteSport, bestSportIdx))
 
 
 # <Q> ----------------------------------------------------------------------------------------------
@@ -420,7 +433,6 @@ elif exe_no == 7:
     print('students의 마지막 인덱스 : {}'.format(len(students) - 1))
 
 
-    #
     scores = [['국어', 88], ['영어', 91]]
     scores.append(['수학', 96])
 
@@ -497,7 +509,7 @@ elif exe_no == 9:
     print('students의 길이 : {}'.format(len(students)))
 
 
-    students = ['홍길동', '박찬호', '이용규', '강호동', '박승철', '김지은']
+    students = ['홍길동', '박찬호', '이용규', '박승철', '김지은', '강호동']
     print('students : {}'.format(students))
     print('students의 길이 : {}'.format(len(students)))
 
@@ -525,7 +537,10 @@ elif exe_no == 9:
 
     playerScore.pop(minScoreIdx)
     print('playerScore : {}'.format(playerScore))
-
+    '''
+     # pop() 이후에 index가 자동 재배열 되므로 최대, 최소값의 index를 같이 찾는 것은 의미가 없다.
+     # 새롭게 재배열된 index에서 다시 최대값 index를 찾아야 한다.
+    '''
     for idx, score in enumerate(playerScore):
         if maxScore < score:
             maxScoreIdx = idx
@@ -542,7 +557,7 @@ elif exe_no == 10:
 # 아이템 삭제 =========================================================================================
 # remove(__value) 메서드 --> 처음 나타난 인수 __value에 해당하는 값 한 개를 삭제
 
-    students = ['홍길동', '박찬호', '이용규', '강호동', '박승철', '김지은']
+    students = ['홍길동', '박찬호', '이용규', '강호동', '박승철', '김지은', '강호동']
     print('students : {}'.format(students))
     print('students의 길이 : {}'.format(len(students)))
 
@@ -572,7 +587,8 @@ elif exe_no == 10:
              , '마트 장보기']
     print('일정 : {}'.format(myList))
 
-    removeItem = input('삭제 대상 입력: ')
+    removeItem = random.choice(myList) # input('삭제 대상 입력: ')
+    print(f'removeItem: {removeItem}')
     myList.remove(removeItem)
     print('일정 : {}'.format(myList))
 
@@ -580,10 +596,11 @@ elif exe_no == 10:
 # <Q> ----------------------------------------------------------------------------------------------
 # 시험 과목표에서 사용자가 입력한 과목을 삭제하는 프로그램
 
-    subjects = ['국어', '영어', '수학', '과학', '국사']
+    subjects = ['국어', '영어', '수학', '과학', '국사', '영어', '수학', '과학']
     print('시험 과목표 : {}'.format(subjects))
 
-    removeSubject = input('삭제 과목명 입력: ')
+    removeSubject = random.choice(subjects) # input('삭제 과목명 입력: ')
+    print(f'removeSubject: {removeSubject}')
     while removeSubject in subjects:
         subjects.remove(removeSubject)
 
@@ -639,7 +656,7 @@ elif exe_no == 11:
 
 elif exe_no == 12:
 # 리스트 정렬 =========================================================================================
-# sort() 메서드 -->
+# sort() 메서드 --> 리스트를 오름차순(default)이나 내림차순(reverse=True)으로 정렬한다.
 
     students = ['홍길동', '박찬호', '이용규', '강호동', '박승철', '김지은']
     print('students: {}'.format(students))
@@ -687,7 +704,7 @@ elif exe_no == 12:
 
 elif exe_no == 13:
 # 리스트 뒤집기 =======================================================================================
-# reverse() 메서드 -->
+# reverse() 메서드 --> 리스트의 순서를 뒤집어 준다. 정렬 X
 
     students = ['홍길동', '박찬호', '이용규', '강호동', '박승철', '김지은']
     print('students: {}'.format(students))
@@ -791,7 +808,6 @@ elif exe_no == 14:
 
     # slice 객체 이용
     students = ['홍길동', '박찬호', '이용규', '강호동', '박승철', '김지은']
-    print('students: {}'.format(students))
     print('students: {}'.format(students[2:4]))
     print('students: {}'.format(students[:4]))
     print('students: {}'.format(students[2:]))
@@ -803,6 +819,8 @@ elif exe_no == 14:
     print('students: {}'.format(students[slice(2, len(students))]))
     print('students: {}'.format(students[slice(2, len(students)-2)]))
     print('students: {}'.format(students[slice(len(students)-5, len(students)-2)]))
+
+    print('students: {}'.format(students))
 
 
 

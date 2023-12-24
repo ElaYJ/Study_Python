@@ -7,20 +7,20 @@ nums = [4, 2, 5, 1, 3]
 print(f'initial nums: {nums}')
 
 for i in range(len(nums)-1):
-	minIdx = i
+    min_idx = i
 
     # 최소값 찾기
-	for j in range(i+1, len(nums)):
-		if nums[minIdx] > nums[j]:
-			minIdx = j
+    for j in range(i+1, len(nums)):
+        if nums[min_idx] > nums[j]:
+            min_idx = j
 
+    if min_idx == i: continue
 
-	tempNum = nums[i]
-	nums[i] = nums[minIdx]
-	nums[minIdx] = tempNum
+    tempNum = nums[i]
+    nums[i] = nums[min_idx]
+    nums[min_idx] = tempNum
 
-        print(f'nums: {nums}')
-
+    print(f'nums: {nums}')
 
 print(f'final nums: {nums}')
 print()
@@ -37,19 +37,22 @@ import random
 
 import copy
 
-scores = random.sample(range(50, 101), 20)
-print(f'scores: {scores}')
-print(f'scores length: {len(scores)}')
+scores = random.sample(range(50, 101), 10)
+print(f'before scores: {scores}')
+print(f'scores length: {len(scores)}\n')
 
 # ascending
 # result = sm.sortNumber(scores)
-result = sm.sortNumber(copy.deepcopy(scores))
-print(f'result(ASC): {result}')
+result = sm.selectionSort(copy.deepcopy(scores))
+print(f'result(ASC) : {result}')
 
 # descending
 # result = sm.sortNumber(scores, asc=False)
-result = sm.sortNumber(copy.deepcopy(scores), asc=False)
-print(f'result(DESC): {result}')
+result = sm.selectionSort(copy.deepcopy(scores), asc=False)
+print(f'result(DESC): {result}\n')
+
+print(f'after scores: {scores}\n')
+
 
 
 # <EX> ---------------------------------------------------------------------------
@@ -61,12 +64,25 @@ print(f'result(DESC): {result}')
 
 if __name__ == '__main__':
     nums = random.sample(range(1, 20), 10)
+    print(f'before sorted nums: {nums}\n')
 
-    print(f'not sorted nums:\n{nums}')
-    result = sm.sortSelectSortAlgorithm(nums)
-    print(f'sorted nums by ASC:\n{result}')
+    result = sm.selectSortAlgorithm(nums)
+    print(f'sorted nums by ASC : {result}\n')
 
-    print(f'not sorted nums:\n{nums}')
-    result = sm.sortSelectSortAlgorithm(nums, asc=False)
-    print(f'sorted nums by DESC:\n{result}')
+    result = sm.selectSortAlgorithm(nums, asc=False)
+    print(f'sorted nums by DESC: {result}\n')
+
+    print(f'after sorted nums: {nums}\n')
+
+
+    nums = random.sample(range(1, 20), 10)
+    print(f'before sorted nums: {nums}\n')
+
+    result = sm.selectionSortAlgorithm(nums)
+    print(f'sorted nums by ASC : {result}\n')
+
+    result = sm.selectionSortAlgorithm(nums, asc=False)
+    print(f'sorted nums by DESC: {result}\n')
+
+    print(f'after sorted nums: {nums}\n')
 

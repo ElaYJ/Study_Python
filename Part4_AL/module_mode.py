@@ -28,7 +28,7 @@ class QMaxAlgorithm:
 # 최빈값 알고리즘을 이용해 나이 분포를 간단한 그래프로 출력하는 모듈
 # 다음은 어떤 회사의 전직원 나이를 나타내는 리스트이다.
 
-class EXMaxAlgorithm:
+class MaxAlgorithm:
 
     def __init__(self, ns):
         self.nums = ns
@@ -81,7 +81,7 @@ class ModeAlgorithm:
         n = 1
         while True:
 
-            maxAlo = EXMaxAlgorithm(self.indexes)
+            maxAlo = MaxAlgorithm(self.indexes)
             maxAlo.setMaxIdxAndNum()
             maxNum = maxAlo.getMaxNum()
             maxNumIdx = maxAlo.getMaxNumIdx()
@@ -95,6 +95,42 @@ class ModeAlgorithm:
 
             n += 1
 
+class myModeAlgorithm:
+
+    def __init__(self, ns, mn):
+        self.nums = ns
+        self.maxNum = mn
+        self.indexes = {}
+
+    # 인덱스 리스트 생성 및 빈도 저장
+    def setIndexList(self):
+        for n in self.nums:
+            if n not in self.indexes: self.indexes[n] = 0
+            self.indexes[n] += 1
+
+    def getIndexList(self):
+        if len(self.indexes) == 0:
+            return None
+        else:
+            return self.indexes
+
+    def printAges(self):
+
+        n = 1
+        while True:
+
+            max_freq = 0; mode_num = 0
+            for score, frequency in self.indexes.items():
+                if max_freq < frequency:
+                    max_freq = frequency
+                    mode_num = score
+
+            if len(self.indexes) == 0: break
+
+            print(f'[{n:0>3}] {mode_num}세 빈도수: {max_freq}\t' + ('+' * max_freq))
+
+            del self.indexes[mode_num]
+            n += 1
 
 
 # <EX> ----------------------------------------------------------------------------

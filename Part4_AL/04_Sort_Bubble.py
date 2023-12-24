@@ -96,3 +96,11 @@ if __name__ == '__main__':
 
     result = sb.sortBybubleSortAlgorithm(nums, asc=False)
     print(f'sorted nums by DESC: {result}\n')
+
+    result = sb.improvedBubbleSort(nums)
+    print(f'sorted nums by ASC: {result}\n', '-'*30, '\n')
+
+    result = sb.improvedBubbleSort(nums, asc=False)
+    print(f'sorted nums by DESC: {result}\n')
+
+# [6, 9, 8, 5, 2, 4, 3]
