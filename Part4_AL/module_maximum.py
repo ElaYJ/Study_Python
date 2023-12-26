@@ -6,30 +6,46 @@ class MaxAlgorithm:
 
     def __init__(self, ns):
         self.nums = ns
-        self.maxNum = 0
-        self.maxNumCnt = 0
+        self.maxNum = None
+        self.maxNumIdx = None
+        self.maxNumCnt = None
 
     def setMaxNum(self):
-        self.maxNum = 0
+        self.maxNum = self.nums[0]
 
         for n in self.nums:
             if self.maxNum < n:
                 self.maxNum = n
 
-    def getMaxNum(self):
-        self.setMaxNum()
+    def setMaxNumAndIdx(self):
+        self.maxNum = self.nums[0]
+        self.maxNumIdx = 0
 
-        return self.maxNum
+        for i, n in enumerate(self.nums):
+            if self.maxNum < n:
+                self.maxNum = n
+                self.maxNumIdx = i
 
     def setMaxNumCnt(self):
-        self.setMaxNum()
+        if self.maxNum == None: self.setMaxNum()
 
+        self.maxNumCnt = 0
         for n in self.nums:
             if self.maxNum == n:
                 self.maxNumCnt += 1
 
+    def getMaxNum(self):
+        if self.maxNum == None: self.setMaxNum()
+
+        return self.maxNum
+
+    def getMaxNumIdx(self):
+        if self.maxNumIdx == None: self.setMaxNumAndIdx()
+
+        return self.maxNumIdx
+
     def getMaxNumCnt(self):
-        self.setMaxNumCnt()
+        if self.maxNumCnt == None: self.setMaxNumCnt()
 
         return self.maxNumCnt
 

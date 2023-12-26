@@ -51,7 +51,7 @@ class Top5Players:
 # 다음은 어떤 체조선수의 경기 점수이다.
 
 
-class MaxAlgorithm:
+class MaxDelAlgorithm:
 
     def __init__(self, ss):
         self.scores = ss
@@ -72,7 +72,7 @@ class MaxAlgorithm:
         print(f'scores: {self.scores}')
 
 
-class MinAlgorithm:
+class MinDelAlgorithm:
 
     def __init__(self, ss):
         self.scores = ss

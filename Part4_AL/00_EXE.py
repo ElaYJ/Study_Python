@@ -1,5 +1,6 @@
 import random
 
+# '+' operation in List & Tuple
 datas = [3, 2, 5, 7, 9, 1, 0, 8, 6, 4]
 nums = (4, 7, 10, 2, 4, 7, 0, 2, 7, 3, 9)
 
@@ -14,22 +15,24 @@ print(datas)
 print(result2)
 
 
+# initialization by random
 ranks = [0 for i in range(20)]
 print(ranks)
 
-import random as rd
-students = [rd.randint(170, 185) for i in range(20)]
-print(students)
-
-#indexes = [0 for i in range(maxNum + 1)]
 indexes = [0] * 10
 print(indexes)
 
+students = [random.randint(170, 185) for i in range(20)]
+print(students)
 
+
+# casting
 cs = ['c', 'x', 'Q', 'A', 'e', 'P', 'p']
 asciis = [ord(c) for c in cs]
 print(asciis)
 
+
+# mode
 scores = [random.randint(30,100) for i in range(5)]
 print(scores)
 
@@ -47,4 +50,7 @@ for n in scores:
 print(f'indexes: {dic_indexes}')
 
 
+
+max_num = None
+print(max_num)
 

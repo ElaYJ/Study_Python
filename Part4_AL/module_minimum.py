@@ -6,30 +6,45 @@ class MinAlgorithm:
 
     def __init__(self, ns):
         self.nums = ns
-        self.minNum = 0
-        self.minNumCnt = 0
+        self.minNum = None
+        self.minNumCnt = None
 
     def setMinNum(self):
-        self.minNum = 51
+        self.minNum = self.nums[0]
 
         for n in self.nums:
             if self.minNum > n:
                 self.minNum = n
 
-    def getMinNum(self):
-        self.setMinNum()
+    def setMinNumAndIdx(self):
+        self.minNum = self.nums[0]
+        self.minNumIdx = 0
 
-        return self.minNum
+        for i, n in enumerate(self.nums):
+            if self.minNum < n:
+                self.minNum = n
+                self.minNumIdx = i
 
     def setMinNumCnt(self):
-        self.setMinNum()
+        if self.minNum == None: self.setMinNum()
 
+        self.minNumCnt = 0
         for n in self.nums:
             if self.minNum == n:
                 self.minNumCnt += 1
 
+    def getMinNum(self):
+        if self.minNum == None: self.setMinNum()
+
+        return self.minNum
+
+    def getMinNumIdx(self):
+        if self.minNumIdx == None: self.setMinNumAndIdx()
+
+        return self.minNumIdx
+
     def getMinNumCnt(self):
-        self.setMinNumCnt()
+        if self.minNumCnt == None: self.setMinNumCnt()
 
         return self.minNumCnt
 

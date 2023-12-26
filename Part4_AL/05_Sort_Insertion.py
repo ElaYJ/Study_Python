@@ -112,8 +112,6 @@ print()
 
 
 
-
-
 # <EX> -----------------------------------------------------------------------
 # 숫자로 이루어진 리스트를 삽입정렬 알고리즘을 이용해서 오름차순과 내림차순으로 정렬하는 모듈
 # 단, 정렬하는 과정도 출력하도록 한다
@@ -122,6 +120,8 @@ print()
 import random
 
 if __name__ == '__main__':
+
+    # insertSortAlgorithm
     nums = random.sample(range(1, 20), 10)
     print(f'before sorted nums: {nums}\n')
 
@@ -133,6 +133,7 @@ if __name__ == '__main__':
 
     print(f'after sorted nums: {nums}\n')
 
+    # insertionSortAlgorithm
     nums = random.sample(range(1, 20), 10)
     print(f'before sorted nums: {nums}\n')
 

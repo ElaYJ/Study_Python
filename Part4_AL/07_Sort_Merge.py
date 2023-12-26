@@ -47,6 +47,7 @@ print(f'sorted nums: {mSort(nums)}')
 print()
 
 
+# [MyCode] 병합 부분을 함수로 구분한다.
 def mergeSort(arr, asc=True):
 
     if len(arr) <= 1:

@@ -1,3 +1,4 @@
+# [MyCode]
 def binary_search(nums, key):
     low, high = 0, len(nums)-1
 

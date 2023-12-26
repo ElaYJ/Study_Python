@@ -32,8 +32,7 @@ print()
 
 
 # <Q> --------------------------------------------------------------------
-# 재귀 알고리즘을 이용한 최대공약수 계산
-# 유클리드 호제법
+# 유클리드 호제법 : 재귀 알고리즘을 이용한 최대공약수 계산
 
 def greatestCommonDevide(n1, n2):
     maxNum = 0
@@ -61,6 +60,7 @@ print(f'gcd(96, 40): {gcd(96, 40)}')
 print()
 
 
+# [확인코드]
 recur_step = 0
 
 def euclidGCD1(n1, n2):
@@ -72,7 +72,7 @@ def euclidGCD1(n1, n2):
     return euclidGCD1(n2, n1%n2)
 
 print(f'euclidGCD1(82, 32): {euclidGCD1(82, 32)}')
-print(f'euclidGCD1(82, 32): {euclidGCD1(96, 40)}')
+print(f'euclidGCD1(96, 40): {euclidGCD1(96, 40)}')
 
 recur_step = 0
 
@@ -85,7 +85,7 @@ def euclidGCD2(n1, n2):
     else:
         return euclidGCD2(n2, n1 % n2)
 print(f'euclidGCD2(82, 32): {euclidGCD2(82, 32)}')
-print(f'euclidGCD2(82, 32): {euclidGCD2(96, 40)}')
+print(f'euclidGCD2(96, 40): {euclidGCD2(96, 40)}')
 print()
 
 
@@ -188,8 +188,6 @@ def moveDisc(discCnt, fromBar, toBar, viaBar):
         # recurB
         moveDisc(discCnt-1, viaBar, toBar, fromBar)
         print('recurB CLOSE!!')
-
-
 
 
 moveDisc(3, 1, 3, 2)

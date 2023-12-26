@@ -2,73 +2,56 @@
  # [최빈값] 데이터에서 빈도수가 가장 많은 데이터를 최빈값이라고 한다. (빈도수가 가장 높은 데이터)
 '''
 
-
-class MaxAlgorithm:
-
-    def __init__(self, ns):
-        self.nums = ns
-        self.maxNum = 0
-        self.maxNumIdx = 0
-
-    def setMaxIdxAndNum(self):
-        self.maxNum = self.nums[0]
-        self.maxNumIdx = 0
-
-        for i, n in enumerate(self.nums):
-            if self.maxNum < n:
-                self.maxNum = n
-                self.maxNumIdx = i
-
-    def getMaxNum(self):
-        return self.maxNum
-
-    def getMaxNumIdx(self):
-        return self.maxNumIdx
+import module_mode as md
 
 nums = [1, 3, 7, 6, 7, 7, 7, 12, 12, 17]
 
-maxAl = MaxAlgorithm(nums)
+#/ 최대값을 찾아서,
+maxAl = md.MaxAlgorithm(nums)
 maxAl.setMaxIdxAndNum()
 maxNum = maxAl.getMaxNum()
 print(f'maxNum: {maxNum}')
 
-#indexes = [0 for i in range(maxNum + 1)]
-indexes = [0] * (maxNum+1)
+#/ 최대값 크기 +1 만큼의 리스트 배열을 만든다.
+#/ 인덱스를 데이터의 숫자로 사용한다.
+indexes = [0 for i in range(maxNum + 1)]
 print(f'indexes: {indexes}')
 print(f'indexes length: {len(indexes)}')
 
+#/ n이 나올 때마다 해당 idx[n]에 +1을 해준다.
+#/ 결국 idx[n]에 n이 몇 개 존재하는지 기록하게 된다.
 for n in nums:
     indexes[n] = indexes[n] + 1
 print(f'indexes: {indexes}')
 
-maxAl = MaxAlgorithm(indexes)
+#/ 빈도수를 기록한 indexes 리스트에서 최대값, 즉 최대 빈도수를 찾는다.
+maxAl = md.MaxAlgorithm(indexes)
 maxAl.setMaxIdxAndNum()
-max_mode = maxAl.getMaxNum()
-max_mode_num = maxAl.getMaxNumIdx()
-print(f'max_mode: {max_mode}')
-print(f'max_mode_num: {max_mode_num}')
-print(f'즉, {max_mode_num}의 빈도수가 {max_mode}로 가장 높다.')
+mode_frequency = maxAl.getMaxNum() # 빈도수(최빈값의 횟수)
+mode_number = maxAl.getMaxNumIdx() # 최빈값
+print(f'mode_frequency: {mode_frequency}')
+print(f'mode_number: {mode_number}')
+print(f'즉, {mode_number}의 빈도수가 {mode_frequency}로 가장 높다.')
 print()
 
+# [MyCode] 최빈값을 구할 자료형으로 Dict 사용! 코드가 엄청 간결해짐ㅎ
 print(nums)
 
 dic_idxs = {}
 for n in nums:
-    if n not in dic_idxs:
-        dic_idxs[n] = 0
+    if n not in dic_idxs: # key == n 인 요소가 없다면,
+        dic_idxs[n] = 0   # 생성하고 0으로 초기화!
     dic_idxs[n] += 1
 print(dic_idxs)
 
-max_mode = 0; mode_num = 0
+mode_frequency = 0; mode_num = 0
 for key, val in dic_idxs.items():
-    if max_mode < val:
-        max_mode = val
+    if mode_frequency < val:
+        mode_frequency = val
         mode_num = key
-print(f'즉, {mode_num}의 빈도수가 {max_mode}로 가장 높다.')
+print(f'즉, {mode_num}의 빈도수가 {mode_frequency}로 가장 높다.')
 print()
 
-
-import module_mode as md
 
 # <Q> -----------------------------------------------------------------------------
 # 최빈값 알고리즘을 이용해서 학생 100명의 점수 분포를 출력
@@ -86,13 +69,13 @@ print(f'scores: {scores}')
 print(f'scores length: {len(scores)}')
 
 # 최댓값 알고리즘
-maxAl = md.QMaxAlgorithm(scores)
+maxAl = md.MaxAlgorithm(scores)
 maxAl.setMaxIdxAndNum()
 maxNum = maxAl.getMaxNum()
 print(f'maxNum: {maxNum}')
 
 # 인덱스 리스트 생성
-indexes = [0 for i in range(maxNum + 1)]
+indexes = [0] * (maxNum+1)
 print(f'indexes: {indexes}')
 print(f'indexes length: {len(indexes)}')
 
@@ -106,7 +89,7 @@ print(f'indexes: {indexes}')
 n = 1
 while True:
 
-    maxAl = md.QMaxAlgorithm(indexes)
+    maxAl = md.MaxAlgorithm(indexes)
     maxAl.setMaxIdxAndNum()
     maxNum = maxAl.getMaxNum()
     maxNumIdx = maxAl.getMaxNumIdx()
@@ -122,7 +105,9 @@ while True:
 
     n += 1
 
-# 인덱스 Dic으로 생성
+# [MyCode] 인덱스 Dic으로 생성
+
+# 초기화 따로 해줄 필요 X
 # dic_indexes = {n:0 for n in nums}
 # print(dic_indexes)
 
@@ -188,6 +173,8 @@ print(f'IndexList: {myMode.getIndexList()}')
 myMode.printAges()
 print()
 
+
+
 # <EX> ----------------------------------------------------------------------------
 # 최빈도 알고리즘을 이용해 모든 회차의 각 번호에 대한 빈도수를 출력하는 프로그램
 
@@ -208,6 +195,7 @@ lottoNums = [[13, 23, 15, 5, 6, 39], [36, 13, 5, 3, 30, 16], [43, 1, 15, 9, 3, 3
 lm = md.LottoMode(lottoNums)
 mList = lm.getLottoNumMode()
 print(f'mList: {mList}')
+print(f'mList length: {len(mList)}')
 
 lm.printModeList()
 

@@ -65,6 +65,7 @@ def mergeSortADE(ns, asc=True):
 
 
 if __name__ == '__main__':
+
     nums = [8, 1, 4, 3, 2, 5, 10, 6]
     print(f'merge sorted nums: {mergeSortADE(nums)}')
     print(f'merge sorted nums: {mergeSortADE(nums, asc=False)}')

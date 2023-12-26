@@ -79,6 +79,7 @@ def selectSortAlgorithm(ns, asc=True):
 
     return c_ns
 
+# [MyCode] switch_value가 가장 작은 값이거나 가장 큰 값이라면 교환은 필요없다.
 def selectionSortAlgorithm(ns, asc=True):
 
     c_ns = deepcopy(ns)

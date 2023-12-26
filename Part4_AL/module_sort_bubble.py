@@ -46,6 +46,8 @@ def sortBybubleSortAlgorithm(ns, asc=True):
 
     return c_ns
 
+
+# [MyCode] ElaYJ_Study C++ 코드 참조
 def improvedBubbleSort(arr, asc=True):
 
     copy_arr = copy.copy(arr)

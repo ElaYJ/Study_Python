@@ -108,6 +108,9 @@ class InsertionSort:
 
         self.nots_flag = False
 
+    # get()메서드를 호출했을 때 정렬 작업이 되어 있는지 확인하고
+    # 정렬되어 있지 않다면 setSort()메서드를 호출한다.
+    
     def getSortedNumbers(self):
         if self.nots_flag: self.setSort()
         return self.nums
@@ -161,6 +164,8 @@ def insertSortAlgorithm(ns, asc=True):
 
     return c_ns
 
+
+# [MyCode]
 def insertionSortAlgorithm(nums, asc=True):
 
     c_nums = copy.deepcopy(nums)

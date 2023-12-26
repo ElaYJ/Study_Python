@@ -37,11 +37,11 @@ class RankDeviation:
             deviation = mRank - self.endRanks[idx]
 
             if deviation > 0:
-                deviation = '↑' + str(abs(deviation))
+                deviation = '↑ ' + str(abs(deviation))
             elif deviation < 0:
-                deviation = '↓' + str(abs(deviation))
+                deviation = '↓ ' + str(abs(deviation))
             else:
-                deviation = '=' + str(abs(deviation))
+                deviation = '= ' + str(abs(deviation))
 
             print(f'mid_rank: {mRank+1:>2}등 \t '\
                   f'end_rank: {self.endRanks[idx]+1:>2}등 \t '\

@@ -1,6 +1,5 @@
 '''
- # [선택 정렬] 주어진 리스트 중에 최소값을 찾아, 그 값을 맨 앞에 위치한 값과 교체하는 방식으로
-              자료를 정렬하는 알고리즘이다
+ # [선택 정렬] 주어진 리스트 중에 최소값을 찾아, 그 값을 맨 앞에 위치한 값과 교체하는 방식으로 자료를 정렬하는 알고리즘이다
 '''
 
 nums = [4, 2, 5, 1, 3]
@@ -16,6 +15,7 @@ for i in range(len(nums)-1):
 
     if min_idx == i: continue
 
+    # C++ Style 교환
     tempNum = nums[i]
     nums[i] = nums[min_idx]
     nums[min_idx] = tempNum
@@ -63,6 +63,8 @@ print(f'after scores: {scores}\n')
 # import selectMod
 
 if __name__ == '__main__':
+
+    # selectSortAlgorithm
     nums = random.sample(range(1, 20), 10)
     print(f'before sorted nums: {nums}\n')
 
@@ -75,6 +77,7 @@ if __name__ == '__main__':
     print(f'after sorted nums: {nums}\n')
 
 
+    # selectionSortAlgorithm
     nums = random.sample(range(1, 20), 10)
     print(f'before sorted nums: {nums}\n')
 

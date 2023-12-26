@@ -1,29 +1,6 @@
 # <Q> -----------------------------------------------------------------------------
 # 최빈값 알고리즘을 이용해서 학생 100명의 점수 분포를 출력
 
-class QMaxAlgorithm:
-
-    def __init__(self, ns):
-        self.nums = ns
-        self.maxNum = 0
-        self.maxNumIdx = 0
-
-    def setMaxIdxAndNum(self):
-        self.maxNum = self.nums[0]
-        self.maxNumIdx = 0
-
-        for i, n in enumerate(self.nums):
-            if self.maxNum < n:
-                self.maxNum = n
-                self.maxNumIdx = i
-
-    def getMaxNum(self):
-        return self.maxNum
-
-    def getMaxNumIdx(self):
-        return self.maxNumIdx
-
-
 # <EX> ----------------------------------------------------------------------------
 # 최빈값 알고리즘을 이용해 나이 분포를 간단한 그래프로 출력하는 모듈
 # 다음은 어떤 회사의 전직원 나이를 나타내는 리스트이다.
@@ -36,7 +13,7 @@ class MaxAlgorithm:
         self.maxNumIdx = 0
 
     def setMaxIdxAndNum(self):
-        self.maxNum = 0
+        self.maxNum = self.nums[0]
         self.maxNumIdx = 0
 
         for i, n in enumerate(self.nums):
@@ -105,6 +82,7 @@ class myModeAlgorithm:
     # 인덱스 리스트 생성 및 빈도 저장
     def setIndexList(self):
         for n in self.nums:
+            # 자료형이 Dict이므로 n 값이 없다면 key = n인 요소를 생성하고 +1을 하기위해 0으로 초기화 한다.
             if n not in self.indexes: self.indexes[n] = 0
             self.indexes[n] += 1
 
@@ -135,13 +113,12 @@ class myModeAlgorithm:
 
 # <EX> ----------------------------------------------------------------------------
 # 최빈도 알고리즘을 이용해 모든 회차의 각 번호에 대한 빈도수를 출력하는 프로그램
-# 다음은 회차별 로또 번호이다.
 
 class LottoMode:
 
     def __init__(self, ln):
         self.lottoNums = ln
-        self.modeList = [0 for n in range(1, 47)]
+        self.modeList = [0 for n in range(46)] # 로또 번호: 1~45, idx[0]을 사용하지 않으므로 46개 생성
 
     def getLottoNumMode(self):
 

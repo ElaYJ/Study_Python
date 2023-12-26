@@ -103,4 +103,3 @@ if __name__ == '__main__':
     result = sb.improvedBubbleSort(nums, asc=False)
     print(f'sorted nums by DESC: {result}\n')
 
-# [6, 9, 8, 5, 2, 4, 3]

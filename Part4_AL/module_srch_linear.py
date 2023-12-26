@@ -43,8 +43,8 @@ def linear_search(nums, key):
 from copy import deepcopy
 
 
-# 가변객체(list, dict, set)의 복사는 디폴트: 얕은 복사!!
-# 가변 객체를 복사하는 방법은 생성자,[:], .copy()함수를 사용하는 것이다. 모두다 얕은 복사이다.
+# 가변객체(list, dict, set) 복사의 Default는 얕은 복사!!
+# 가변 객체를 깊은 복사하는 방법은 생성자, [:], .copy()함수를 사용하는 것이다.
 def linearSearch(nums, search_num):
     sentinel_idx = len(nums)
     search_idxes = []

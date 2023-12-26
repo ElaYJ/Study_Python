@@ -89,6 +89,8 @@ print()
 # <Q> -----------------------------------------------------------------
 # 리스트에서 아스키코드가 가장 작은 값을 찾는 알고리즘
 
+# ASCII로 변환한 데이터를 속성으로 가지고,
+# 최소값을 찾을 때도 변환된 데이터를 활용한다.
 class MinASCII:
 
     def __init__(self, cs):
@@ -108,6 +110,8 @@ class MinASCII:
         self.minChar = chr(minAscii)
 
         return self.minChar
+
+        # for문을 도는 동안 계속 ord()함수를 호출
         # self.minChar = self.chars[0]
         #
         # for c in self.chars:
@@ -155,14 +159,12 @@ if __name__ == '__main__':
     ma = max.MaxAlgorithm(nums)
     print(f'max num: {ma.getMaxNum()}')
     print(f'max num cnt: {ma.getMaxNumCnt()}')
-print()
+    print()
 
 
 # <EX> -----------------------------------------------------------------------------
 # 학급 전체 학생의 시험 점수에 대한 평균과 최댓값을 구하고 평균과 최댓값의 편차를 출력하는 프로그램을
 # 최댓값 알고리즘을 이용해서 만들기
-
-#import mod
 
 scores = [100, 64, 94, 66, 75, 58, 99, 76, 96, 74
          , 54, 73, 88, 70, 68, 50, 95, 89, 69, 98]
@@ -195,7 +197,7 @@ if __name__ == '__main__':
     ma = min.MinAlgorithm(nums)
     print(f'min num: {ma.getMinNum()}')
     print(f'min num cnt: {ma.getMinNumCnt()}')
-print()
+    print()
 
 
 # <EX> -----------------------------------------------------------------------------
@@ -217,7 +219,7 @@ print(f'deviation: {deviation}')
 print()
 
 #import mod2
-
+# Class화
 sm = min.ScoreManagement(scores)
 print(f'score_avg: {sm.getAvgScore()}')
 print(f'score_min: {sm.getMinScore()}')

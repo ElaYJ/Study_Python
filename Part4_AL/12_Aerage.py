@@ -15,8 +15,6 @@ print(f'average: {round(average, 2)}\n')
 
 
 # 50이상 90이하 수들의 평균
-#import random
-
 nums = random.sample(range(0, 100), 30)
 print(f'nums: {nums}')
 
@@ -99,19 +97,16 @@ print()
 # 최댓값과 최솟값을 제외한 나머지 점수에 대한 평균을 구하고 순위를 정하는 알고리즘
 # 다음은 어떤 체조선수의 경기 점수이다.
 
-# import maxAlgorithm, minAlgorithm
-# import nearAlgorithm
-
 top5Scores = [9.12, 8.95, 8.12, 6.90, 6.18]
 scores = [6.7, 5.9, 8.1, 7.9, 6.7, 7.3, 7.2, 8.2, 6.2, 5.8]
 print(f'scores: {scores}')
 
 # 최댓값 제거
-maxA = avg.MaxAlgorithm(scores)
+maxA = avg.MaxDelAlgorithm(scores)
 maxA.removeMaxScore()
 
 # 최솟값 제거
-minA = avg.MinAlgorithm(scores)
+minA = avg.MinDelAlgorithm(scores)
 minA.removeMinScore()
 
 # 평균 구하기

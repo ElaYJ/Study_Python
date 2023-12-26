@@ -1,4 +1,4 @@
-
+# Ascending / DEscending
 def quickSortADE(ns, asc=True):
 
     if len(ns) < 2:
@@ -6,7 +6,6 @@ def quickSortADE(ns, asc=True):
 
     mid_idx = len(ns) // 2
     pivot = ns[mid_idx]
-
 
     smallNums = []; sameNums = []; bigNums = []
 
@@ -25,6 +24,7 @@ def quickSortADE(ns, asc=True):
 
 
 if __name__ == '__main__':
+
     nums = [8, 1, 4, 3, 2, 5, 4, 10, 6, 8]
     print(f'quick sorted nums: {quickSortADE(nums)}')
     print(f'quick sorted nums: {quickSortADE(nums, asc=False)}')

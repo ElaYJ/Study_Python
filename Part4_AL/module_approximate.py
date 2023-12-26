@@ -60,7 +60,7 @@ class NearAlgorithm:
 # 사용자의 몸무게(kg) 와 키(m)를 입력하면 체질량지수(BMI)를 계산하고,
 # 근삿값 알고리즘과 BMI 표를 이용해 신체 상태를 출력하는 프로그램
 
-class BmiAlgorithm:
+class BMIAlgorithm:
 
     def __init__(self, w, h):
         self.BMISection = {18.5: ['저체중', '정상'],
@@ -73,7 +73,8 @@ class BmiAlgorithm:
         self.nearNum = 0
         self.minNum = 25
 
-    def calculatorBMI(self):
+    # BMI = weight / height * height
+    def calculateBMI(self):
         self.userBMI = round(self.userWeight / (self.userHeight ** 2), 2)
         print(f'userBMI: {self.userBMI}')
 
