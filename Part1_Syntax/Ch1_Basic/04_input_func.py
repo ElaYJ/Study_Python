@@ -22,7 +22,7 @@ print(userInputData)
 print(type(userInputData))
 print()
 
-Casting
+# Casting
 userInputData = input('문자형을 입력하세요. ')
 print(userInputData)
 print(type(userInputData))
