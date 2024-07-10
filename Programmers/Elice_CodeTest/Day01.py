@@ -69,3 +69,52 @@ n_sort.remove(next_n)
 result += str(next_n) + "".join(map(str, n_sort))
 print(result)
 # 60점 ==================================================================
+
+# 정답 코드
+s = list(input())
+
+for i in range(len(s)-2, -1, -1):
+    if s[i] < s[i+1]:
+        break
+else:
+    print(0)
+    exit()
+
+for j in range(len(s)-1, i, -1):
+    if s[j] > s[i]:
+        break
+
+s[i], s[j] = s[j], s[i]
+s[i+1:] = s[:i:-1]
+print("".join(s))
+
+# ChatGPT
+def next_greater_number_with_same_digits(n):
+    digits = list(str(n))
+    length = len(digits)
+
+    # Step 1: Find the first decreasing element from the end
+    for i in range(length - 2, -1, -1):
+        if digits[i] < digits[i + 1]:
+            break
+    else:
+        # If no such element is found, the digits are in descending order
+        return -1
+
+    # Step 2: Find the smallest element greater than digits[i] from the end
+    for j in range(length - 1, i, -1):
+        if digits[j] > digits[i]:
+            # Step 3: Swap them
+            digits[i], digits[j] = digits[j], digits[i]
+            break
+
+    # Step 4: Reverse the digits after the position i
+    digits = digits[:i + 1] + sorted(digits[i + 1:])
+
+    return int("".join(digits))
+
+# 테스트 케이스
+print(next_greater_number_with_same_digits(67))  # 출력: 76
+print(next_greater_number_with_same_digits(1234))  # 출력: 1243
+print(next_greater_number_with_same_digits(4321))  # 출력: -1 (없음)
+print(next_greater_number_with_same_digits(534976))  # 출력: 536479
