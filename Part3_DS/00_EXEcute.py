@@ -78,13 +78,13 @@ studentTuple = ('홍길동', '박찬호', '이용규')
 print(studentTuple * 3)
 
 list_ex = [1, 2, 3, 4, 5]
-print(list_ex)
+print(list_ex, type(list_ex))
 
 item1, item2, item3, item4, item5 = list_ex
 print(item1, item2, item3, item4, item5)
 
 list_ex = item1, item2, item3, item4, item5
-print(list_ex)
+print(list_ex, type(list_ex))
 
 numbers = (8.7, 9.0, 9.1, 9.2, 8.6, 9.3, 7.9, 8.1, 8.3)
 
