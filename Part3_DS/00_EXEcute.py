@@ -103,3 +103,4 @@ mixed_dict = {
 # Dictionary 순회(iterate)
 for key, value in mixed_dict.items():
     print(f'{key}: {value}')
+
